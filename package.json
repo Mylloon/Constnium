@@ -1,0 +1,20 @@
+{
+  "name": "constnium",
+  "version": "0.0.1",
+  "description": "Calculate your constant based on your first name",
+  "main": "src/index.js",
+  "scripts": {
+    "main": "node .",
+    "debug": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.kennel.ml:Anri/Constnium.git"
+  },
+  "keywords": [
+    "constant",
+    "first name"
+  ],
+  "author": "Mylloon",
+  "license": "GPL-3.0-only"
+}
