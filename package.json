@@ -16,5 +16,8 @@
     "first-name"
   ],
   "author": "Mylloon",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
