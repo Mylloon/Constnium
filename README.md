@@ -1,4 +1,4 @@
-# Constnium
+# [Constnium](https://git.kennel.ml/Anri/Constnium)
 
 Calculate your own constant based on your first name.
 
