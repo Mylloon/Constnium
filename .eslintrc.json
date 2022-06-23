@@ -29,7 +29,7 @@
         "space-infix-ops": "warn",
         "brace-style": "warn",
         "comma-spacing": "warn",
-        "indent": "warn",
+        "indent": ["warn", { "SwitchCase": 2 }],
         "arrow-spacing": "warn"
     }
 }
