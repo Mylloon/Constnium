@@ -5,7 +5,7 @@ const readme = require('../utils/readme')
 
 // Home Page
 router.get('/', (_, res) => {
-    readme.data()
+    readme.get()
         .then(data => res.render('index', { readme: marked.parse(data) }))
 })
 
