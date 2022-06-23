@@ -35,9 +35,9 @@ const get_const = (letters = Array) => {
         position++;
         switch (letter) {
             case "a":
-                const_data.push(0.373955 ** position);
+                const_data.push(1.28242712910062263687534256886979172 ** position);
                 const_infos[letter] = {
-                    "wikipedia": "https://en.wikipedia.org/wiki/Artin%27s_conjecture_on_primitive_roots"
+                    "wikipedia": "https://en.wikipedia.org/wiki/Glaisher%E2%80%93Kinkelin_constant"
                 };
                 break;
             case "b":
@@ -59,19 +59,19 @@ const get_const = (letters = Array) => {
                 };
                 break;
             case "e":
-                const_data.push(1.606695 ** position);
+                const_data.push(2.71828182845904523536028747135266250 ** position);
                 const_infos[letter] = {
-                    "wikipedia": "https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Borwein_constant"
+                    "wikipedia": "https://en.wikipedia.org/wiki/E_(mathematical_constant)"
                 };
                 break;
             case "f":
-                const_data.push(2.807770 ** position);
+                const_data.push(2,80777024202851936522150118655777293 ** position);
                 const_infos[letter] = {
                     "wikipedia": "https://en.wikipedia.org/wiki/Frans%C3%A9n%E2%80%93Robinson_constant"
                 };
                 break;
             case "g":
-                const_data.push(0.834626 ** position);
+                const_data.push(0.83462684167407318628142973279904680 ** position);
                 const_infos[letter] = {
                     "wikipedia": "https://en.wikipedia.org/wiki/Gauss%27s_constant"
                 };
@@ -98,9 +98,12 @@ const get_const = (letters = Array) => {
                 };
                 break; */
             case "k":
-                const_data.push(0.764223 ** position);
+                const_data.push(1.75793275661800453270881963821813852 ** position);
                 const_infos[letter] = {
-                    "wikipedia": "https://en.wikipedia.org/wiki/Landau%E2%80%93Ramanujan_constant"
+                    "oeis": {
+                        "link": "https://oeis.org/A072449",
+                        "name": "Kasner number"
+                    }
                 };
                 break;
             case "l":
@@ -110,7 +113,7 @@ const get_const = (letters = Array) => {
                 };
                 break;
             case "m":
-                const_data.push(0.261497 ** position);
+                const_data.push(0.26149721284764278375542683860869585 ** position);
                 const_infos[letter] = {
                     "wikipedia": "https://en.wikipedia.org/wiki/Meissel%E2%80%93Mertens_constant"
                 };
@@ -128,31 +131,28 @@ const get_const = (letters = Array) => {
                 };
                 break; */
             case "p":
-                const_data.push(2.29558714939263807403 ** position);
+                const_data.push(2.29558714939263807403429804918949038 ** position);
                 const_infos[letter] = {
                     "wikipedia": "https://en.wikipedia.org/wiki/Universal_parabolic_constant"
                 };
                 break;
             case "q":
-                const_data.push(0.28878809508660242127 ** position); // فلاجوليت وريتشموند
+                const_data.push(0.28878809508660242127889972192923078 ** position); // فلاجوليت وريتشموند
                 const_infos[letter] = {
                     "oeis": {
                         "link": "https://oeis.org/A048651",
-                        "name": "Decimal expansion of Product {k >= 1} (1 - 1/2^k)."
+                        "name": "Flajolet and Richmond"
                     }
                 };
                 break;
-            case "r":
-                const_data.push(1.75793275661800453270 ** position);
+            /* case "r":
+                const_data.push(x ** position);
                 const_infos[letter] = {
-                    "oeis": {
-                        "link": "https://oeis.org/A072449",
-                        "name": "Kasner number"
-                    }
+                    "wikipedia": ""
                 };
-                break;
+                break; */
             case "s":
-                const_data.push(0.18785964246206712024 ** position);
+                const_data.push(0.18785964246206712024851793405427323 ** position);
                 const_infos[letter] = {
                     "wikipedia": "https://en.wikipedia.org/wiki/MRB_constant"
                 };
@@ -172,12 +172,12 @@ const get_const = (letters = Array) => {
                     "wikipedia": "https://en.wikipedia.org/wiki/Self-avoiding_walk"
                 };
                 break;
-            /* case "v":
-                const_data.push(x ** position);
+            case "v":
+                const_data.push(0.42215773311582662702 ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/Reuleaux_tetrahedron"
                 };
-                break; */
+                break;
             case "w":
                 const_data.push(2.09455148154232659148 ** position);
                 const_infos[letter] = {
@@ -194,12 +194,12 @@ const get_const = (letters = Array) => {
                     "wikipedia": ""
                 };
                 break; */
-            /* case "y":
-                const_data.push(x ** position);
+            case "y":
+                const_data.push(0.57721566490153286060651209008240243 ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/Euler%27s_constant"
                 };
-                break; */
+                break;
             /* case "z":
                 const_data.push(x ** position);
                 const_infos[letter] = {
