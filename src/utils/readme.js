@@ -19,7 +19,10 @@ async function get() {
                 // eslint-disable-next-line no-undef
                 data = Buffer.from(json.content, json.encoding).toString('utf8');
                 timestamp = now;
-            }));
+            }))
+            .catch(() => {
+                data = "# Constnium";
+            });
     }
 
     return data;
