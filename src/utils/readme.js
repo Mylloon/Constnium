@@ -1,31 +1,16 @@
-const fetch = require('node-fetch');
+fs = require('fs');
 
-// URL of the repo
-const repoURL = 'https://git.kennel.ml/api/v1/repos/Anri/Constnium/contents/FAQ.md';
-
-// Store the data from the repo
-let data = null;
-
-// Store last time data as been pulled from the repo
-let timestamp = 0;
-
-// Retrieve the data from the repo
-async function get() {
-    const now = Date.now();
-    // If data is older than one day, refresh it
-    if (Math.ceil(Math.abs(now - timestamp) / (1000 * 3600 * 24)) > 2 || data === null) {
-        await fetch(repoURL)
-            .then(res => res.json().then(json => {
-                // eslint-disable-next-line no-undef
-                data = Buffer.from(json.content, json.encoding).toString('utf8');
-                timestamp = now;
-            }))
-            .catch(() => {
-                data = "# Constnium";
-            });
-    }
-
-    return data;
+// Retrieve the FAQ file
+const get = () => {
+    return new Promise(function(ok) {
+        fs.readFile('./FAQ.md', 'utf8', (err, data) => {
+            if (err) {
+                console.log(err);
+                ok('# Erreur 404\nImpossible de trouver la FAQ.');
+            }
+            ok(data);
+        });
+    });
 }
 
 module.exports = {
