@@ -9,12 +9,20 @@ const main = () => {
     input.value = "";
 
     // Create the paragraph of the firstname
-    let paragraph_firstname = document.createElement("p");
-    paragraph_firstname.className = "firstname-constant-paragraph";
-    document.getElementsByClassName("firstname-constant").item(0).append(paragraph_firstname);
-    defaultFirstname()
+    let string_firstname = document.createElement("p");
+    string_firstname.className = "firstname-constant-string";
 
     // Create the paragraph of the constant
+    let double_firstname = document.createElement("p");
+    double_firstname.className = "firstname-constant-double";
+
+    // Add the elements to the page
+    document.getElementsByClassName("firstname-constant").item(0).append(string_firstname);
+    document.getElementsByClassName("firstname-constant").item(0).append(double_firstname);
+
+    // Fill informations with placeholder
+    defaultFirstname();
+    defaultConstant();
 
     // Call callback when editing the input
     input.addEventListener("input", updateConst);
@@ -26,23 +34,35 @@ const updateConst = () => {
     if(firstname.length) {
         const data = getConst(firstname.split(""));
 
-        getParagraph().textContent = firstname.replace(/^\w/, (c) => c.toUpperCase());
-
-        console.log(`output: ${data.const} - ${JSON.stringify(data.infos)}`);
+        getString().textContent = firstname.replace(/^\w/, (c) => c.toUpperCase());
+        getDouble().textContent = data.const;
+        console.log(`info: ${JSON.stringify(data.infos)}`);
     } else {
         defaultFirstname();
+        defaultConstant();
     }
 };
 
 // Get the paragraph of the name
-const getParagraph = () => {
+const getString = () => {
     return document.getElementsByClassName("firstname-constant").item(0)
-        .getElementsByClassName("firstname-constant-paragraph").item(0);
+        .getElementsByClassName("firstname-constant-string").item(0);
+}
+
+// Get the paragraph of the constant
+const getDouble = () => {
+    return document.getElementsByClassName("firstname-constant").item(0)
+        .getElementsByClassName("firstname-constant-double").item(0);
 }
 
 // Set the paragraph of the name to the placeholder
 const defaultFirstname = () => {
-    getParagraph().textContent = input.placeholder;
+    getString().textContent = input.placeholder;
+}
+
+// Set the paragraph of the constant to the placeholder
+const defaultConstant = () => {
+    getDouble().textContent = getConst(input.placeholder.split("")).const;
 }
 
 const getConst = (letters = Array) => {
