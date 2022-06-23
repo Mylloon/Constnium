@@ -2,3 +2,14 @@
     width: 50% !important;
     text-align: center;
 }
+
+.firstname-constant {
+    height: 15em;
+    min-height: 15em;
+    max-height: 15em;
+}
+
+.firstname-constant p {
+    text-align: center;
+    font-size: 10em;
+}

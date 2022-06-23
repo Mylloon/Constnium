@@ -1,26 +1,51 @@
 window.addEventListener("load", () => main());
 
-const input_name = "firstname";
+// Get input area
+const input = document.getElementById("firstname");
 
 const main = () => {
+
     // Reset content of the input
-    document.getElementById(input_name).value = "";
+    input.value = "";
+
+    // Create the paragraph of the firstname
+    let paragraph_firstname = document.createElement("p");
+    paragraph_firstname.className = "firstname-constant-paragraph";
+    document.getElementsByClassName("firstname-constant").item(0).append(paragraph_firstname);
+    defaultFirstname()
+
+    // Create the paragraph of the constant
 
     // Call callback when editing the input
-    document.getElementById(input_name).addEventListener("input", update_const);
+    input.addEventListener("input", updateConst);
 };
 
 // Callback: called when firstname is changed
-const update_const = () => {
-    const firstname = document.getElementById(input_name).value;
+const updateConst = () => {
+    const firstname = input.value.trim().toLowerCase();
     if(firstname.length) {
-        const data = get_const(firstname.toLowerCase().split(""));
+        const data = getConst(firstname.split(""));
+
+        getParagraph().textContent = firstname.replace(/^\w/, (c) => c.toUpperCase());
 
         console.log(`output: ${data.const} - ${JSON.stringify(data.infos)}`);
+    } else {
+        defaultFirstname();
     }
 };
 
-const get_const = (letters = Array) => {
+// Get the paragraph of the name
+const getParagraph = () => {
+    return document.getElementsByClassName("firstname-constant").item(0)
+        .getElementsByClassName("firstname-constant-paragraph").item(0);
+}
+
+// Set the paragraph of the name to the placeholder
+const defaultFirstname = () => {
+    getParagraph().textContent = input.placeholder;
+}
+
+const getConst = (letters = Array) => {
     console.log(`input: ${letters}`);
 
     // Store constants of each letters of the firstname
@@ -47,9 +72,9 @@ const get_const = (letters = Array) => {
                 };
                 break;
             case "c":
-                const_data.push(1.46707807943397547289 ** position);
+                const_data.push(299792458 ** position);
                 const_infos[letter] = {
-                    "wikipedia": "https://en.wikipedia.org/wiki/Porter%27s_constant"
+                    "wikipedia": "https://en.wikipedia.org/wiki/Speed_of_light"
                 };
                 break;
             case "d":
@@ -76,34 +101,31 @@ const get_const = (letters = Array) => {
                     "wikipedia": "https://en.wikipedia.org/wiki/Gauss%27s_constant"
                 };
                 break;
-            /* case "h":
-                const_data.push(x ** position);
+            case "h":
+                const_data.push(6.62607015e-34 ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/Planck_constant"
                 };
-                const_infos[letter] = {
-                    "wikipedia": ""
-                };
-                break; */
-            /* case "i":
-                const_data.push(x ** position);
-                const_infos[letter] = {
-                    "wikipedia": ""
-                };
-                break; */
-            /* case "j":
-                const_data.push(x ** position);
-                const_infos[letter] = {
-                    "wikipedia": ""
-                };
-                break; */
-            case "k":
-                const_data.push(1.75793275661800453270881963821813852 ** position);
+                break;
+            case "i":
+                const_data.push(0.20787957635076190854695561983497877 ** position);
                 const_infos[letter] = {
                     "oeis": {
-                        "link": "https://oeis.org/A072449",
-                        "name": "Kasner number"
+                        "link": "https://oeis.org/A049006",
+                        "name": "Decimal expansion of i^i"
                     }
+                };
+                break;
+            case "j":
+                const_data.push(5.5208e27 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/J/psi_meson"
+                };
+                break;
+            case "k":
+                const_data.push((-273.15) ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Kelvin"
                 };
                 break;
             case "l":
@@ -118,18 +140,18 @@ const get_const = (letters = Array) => {
                     "wikipedia": "https://en.wikipedia.org/wiki/Meissel%E2%80%93Mertens_constant"
                 };
                 break;
-            /* case "n":
-                const_data.push(x ** position);
+            case "n":
+                const_data.push(6.02214076e+23 ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/Avogadro_constant"
                 };
-                break; */
-            /* case "o":
-                const_data.push(x ** position);
+                break;
+            case "o":
+                const_data.push(1.66168794963359412129581892274995074 ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/Somos%27_quadratic_recurrence_constant"
                 };
-                break; */
+                break;
             case "p":
                 const_data.push(2.29558714939263807403429804918949038 ** position);
                 const_infos[letter] = {
@@ -137,20 +159,17 @@ const get_const = (letters = Array) => {
                 };
                 break;
             case "q":
-                const_data.push(0.28878809508660242127889972192923078 ** position); // فلاجوليت وريتشموند
+                const_data.push(1.8755459e-18 ** position);
                 const_infos[letter] = {
-                    "oeis": {
-                        "link": "https://oeis.org/A048651",
-                        "name": "Flajolet and Richmond"
-                    }
+                    "wikipedia": "https://en.wikipedia.org/wiki/Planck_units#History_and_definition"
                 };
                 break;
-            /* case "r":
-                const_data.push(x ** position);
+            case "r":
+                const_data.push(262537412640768743.999999999999250073  ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/Heegner_number#Almost_integers_and_Ramanujan.27s_constant"
                 };
-                break; */
+                break;
             case "s":
                 const_data.push(0.18785964246206712024851793405427323 ** position);
                 const_infos[letter] = {
@@ -160,10 +179,7 @@ const get_const = (letters = Array) => {
             case "t":
                 const_data.push(1.92756197548292530426 ** position);
                 const_infos[letter] = {
-                    "oeis": {
-                        "link": "https://oeis.org/A086088",
-                        "name": "Decimal expansion of the limit of the ratio of consecutive terms in the tetranacci sequence"
-                    }
+                    "wikipedia": "https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tetranacci_numbers"
                 };
                 break;
             case "u":
@@ -188,24 +204,24 @@ const get_const = (letters = Array) => {
                     }
                 };
                 break;
-            /* case "x":
-                const_data.push(x ** position);
+            case "x":
+                const_data.push(1.0021e-13 ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/X_unit"
                 };
-                break; */
+                break;
             case "y":
                 const_data.push(0.57721566490153286060651209008240243 ** position);
                 const_infos[letter] = {
                     "wikipedia": "https://en.wikipedia.org/wiki/Euler%27s_constant"
                 };
                 break;
-            /* case "z":
-                const_data.push(x ** position);
+            case "z":
+                const_data.push(376.730313668 ** position);
                 const_infos[letter] = {
-                    "wikipedia": ""
+                    "wikipedia": "https://en.wikipedia.org/wiki/Impedance_of_free_space"
                 };
-                break; */
+                break;
 
             default: // By default, equals to 1
                 const_data.push(1);
