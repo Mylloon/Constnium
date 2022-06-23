@@ -6,6 +6,8 @@ const port = 3000;
 app.set('views', 'src/views');
 app.set('view engine', 'ejs');
 
+app.use(express.static('./public'));
+
 app.use('/', require('./routes'));
 
 app.listen(port, () => {
