@@ -134,15 +134,19 @@ const get_const = (letters = Array) => {
             case "q":
                 const_data.push(0.28878809508660242127 ** position); // فلاجوليت وريتشموند
                 const_infos[letter] = {
-                    "oeis": "https://oeis.org/A048651",
-                    "name": "Decimal expansion of Product {k >= 1} (1 - 1/2^k)."
+                    "oeis": {
+                        "link": "https://oeis.org/A048651",
+                        "name": "Decimal expansion of Product {k >= 1} (1 - 1/2^k)."
+                    }
                 };
                 break;
             case "r":
                 const_data.push(1.75793275661800453270 ** position);
                 const_infos[letter] = {
-                    "oeis": "https://oeis.org/A072449",
-                    "name": "Kasner number"
+                    "oeis": {
+                        "link": "https://oeis.org/A072449",
+                        "name": "Kasner number"
+                    }
                 };
                 break;
             case "s":
@@ -154,8 +158,10 @@ const get_const = (letters = Array) => {
             case "t":
                 const_data.push(1.92756197548292530426 ** position);
                 const_infos[letter] = {
-                    "oeis": "https://oeis.org/A086088",
-                    "name": "Decimal expansion of the limit of the ratio of consecutive terms in the tetranacci sequence"
+                    "oeis": {
+                        "link": "https://oeis.org/A086088",
+                        "name": "Decimal expansion of the limit of the ratio of consecutive terms in the tetranacci sequence"
+                    }
                 };
                 break;
             case "u":
@@ -174,8 +180,10 @@ const get_const = (letters = Array) => {
                 const_data.push(2.09455148154232659148 ** position);
                 const_infos[letter] = {
                     "wikipedia": "https://en.wikipedia.org/wiki/John_Wallis#Contributions_to_mathematics",
-                    "oeis": "https://oeis.org/A007493",
-                    "name": "Decimal expansion of Wallis' number, the real root of x^3 - 2*x - 5"
+                    "oeis": {
+                        "link": "https://oeis.org/A007493",
+                        "name": "Decimal expansion of Wallis' number, the real root of x^3 - 2*x - 5"
+                    }
                 };
                 break;
             /* case "x":
