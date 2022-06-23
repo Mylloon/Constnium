@@ -13,9 +13,9 @@ const main = () => {
 // Callback: called when firstname is changed
 const update_const = () => {
     const firstname = document.getElementById(input_name).value;
-    const firstname_const = get_const(firstname.toLowerCase().split(''));
+    const data = get_const(firstname.toLowerCase().split(""));
 
-    console.log(`output: ${firstname_const}`);
+    console.log(`output: ${data.const} - ${JSON.stringify(data.infos)}`);
 };
 
 const get_const = (letters = Array) => {
@@ -25,67 +25,181 @@ const get_const = (letters = Array) => {
     let const_data = [];
 
     // Store some constants info
-    //let const_infos = {};
+    let const_infos = {};
 
-    // Assign each letter to a const, fallback to 1 if no one has been found
-    switch (letters) {
-        case 'a': // https://en.wikipedia.org/wiki/Artin%27s_conjecture_on_primitive_roots
-            const_data.push(0.373955);
-        case 'b': // https://en.wikipedia.org/wiki/Backhouse%27s_constant
-            const_data.push(1.456074);
-        case 'c': // https://en.wikipedia.org/wiki/Porter%27s_constant
-            const_data.push(1.46707807943397547289);
-        /* case 'd':
-            const_data.push(); */
-        case 'e': // https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Borwein_constant
-            const_data.push(1.606695);
-        case 'f': // https://en.wikipedia.org/wiki/Frans%C3%A9n%E2%80%93Robinson_constant
-            const_data.push(2.807770);
-        case 'g': // https://en.wikipedia.org/wiki/Gauss%27s_constant
-            const_data.push(0.834626);
-        /* case 'h':
-            const_data.push(); */
-        /* case 'i':
-            const_data.push(); */
-        /* case 'j':
-            const_data.push(); */
-        case 'k': // https://en.wikipedia.org/wiki/Landau%E2%80%93Ramanujan_constant
-            const_data.push(0.764223);
-        case 'l': // https://en.wikipedia.org/wiki/Lochs%27s_theorem
-            const_data.push(0.97027011439203392574);
-        case 'm': // https://en.wikipedia.org/wiki/Meissel%E2%80%93Mertens_constant
-            const_data.push(0.261497);
-        /* case 'n':
-            const_data.push(); */
-        /* case 'o':
-            const_data.push(); */
-        case 'p': // https://en.wikipedia.org/wiki/Universal_parabolic_constant
-            const_data.push(2.29558714939263807403);
-        /* case 'q':
-            const_data.push(); */
-        /* case 'r':
-            const_data.push(); */
-        case 's': // https://en.wikipedia.org/wiki/MRB_constant
-            const_data.push(0.18785964246206712024);
-        /* case 't':
-            const_data.push(); */
-        /* case 'u':
-            const_data.push(); */
-        /* case 'v':
-            const_data.push(); */
-        /* case 'w':
-            const_data.push(); */
-        /* case 'x':
-            const_data.push(); */
-        /* case 'y':
-            const_data.push(); */
-        /* case 'z':
-            const_data.push(); */
+    // Assign each letter to a constant, fallback to 1 if no one has been found
+    let position = 0;
+    letters.forEach(letter => {
+        position++;
+        switch (letter) {
+            case "a":
+                const_data.push(0.373955 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Artin%27s_conjecture_on_primitive_roots"
+                }
+                break;
+            case "b":
+                const_data.push(1.456074 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Backhouse%27s_constant"
+                }
+                break;
+            case "c":
+                const_data.push(1.46707807943397547289 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Porter%27s_constant"
+                }
+                break;
+            /* case "d":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            case "e":
+                const_data.push(1.606695 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Borwein_constant"
+                }
+                break;
+            case "f":
+                const_data.push(2.807770 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Frans%C3%A9n%E2%80%93Robinson_constant"
+                }
+                break;
+            case "g":
+                const_data.push(0.834626 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Gauss%27s_constant"
+                }
+                break;
+            /* case "h":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "i":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "j":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            case "k":
+                const_data.push(0.764223 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Landau%E2%80%93Ramanujan_constant"
+                }
+                break;
+            case "l":
+                const_data.push(0.97027011439203392574 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Lochs%27s_theorem"
+                }
+                break;
+            case "m":
+                const_data.push(0.261497 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Meissel%E2%80%93Mertens_constant"
+                }
+                break;
+            /* case "n":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "o":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            case "p":
+                const_data.push(2.29558714939263807403 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/Universal_parabolic_constant"
+                }
+                break;
+            /* case "q":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "r":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            case "s":
+                const_data.push(0.18785964246206712024 ** position);
+                const_infos[letter] = {
+                    "wikipedia": "https://en.wikipedia.org/wiki/MRB_constant"
+                }
+                break;
+            /* case "t":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "u":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "v":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "w":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "x":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
+            /* case "z":
+                const_data.push(x ** position);
+                const_infos[letter] = {
+                    "wikipedia": ""
+                }
+                break; */
 
-        default:
-            const_data.push(1);
-    }
+            default: // By default, equals to 1
+                const_data.push(1);
+        }
+    });
 
     // Multiply all the constants together
-    return const_data.reduce((a, b) => a * b);
+    return {
+        "const": const_data.reduce((x, y) => x * y),
+        "infos": const_infos
+    };
 };
