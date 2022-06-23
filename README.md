@@ -12,4 +12,15 @@ There is a [FAQ here](./FAQ.md) if you want to know more about the project.
 Clone the repo and run `npm run main`.
 
 ### Docker
-[Coming Soon™](#)
+> Docker-compose
+```docker-compose
+version: "3"
+
+services:
+  constnium:
+    build: https://git.kennel.ml/Anri/Constnium.git#main
+    container_name: Constnium
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+```
