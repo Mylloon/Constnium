@@ -36,7 +36,7 @@ const updateConst = () => {
 
         getString().textContent = firstname.replace(/^\w/, (c) => c.toUpperCase());
         getDouble().textContent = data.const;
-        console.log(`info: ${JSON.stringify(data.infos)}`);
+        console.log(`info: ${JSON.stringify(data.infos, undefined, 2)}`);
     } else {
         defaultFirstname();
         defaultConstant();
@@ -66,8 +66,6 @@ const defaultConstant = () => {
 }
 
 const getConst = (letters = Array) => {
-    console.log(`input: ${letters}`);
-
     // Store constants of each letters of the firstname
     let const_data = [];
 
