@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 // URL of the repo
-const repoURL = 'https://git.kennel.ml/api/v1/repos/Anri/Constnium/contents/README.md';
+const repoURL = 'https://git.kennel.ml/api/v1/repos/Anri/Constnium/contents/FAQ.md';
 
 // Store the data from the repo
 let data = null;

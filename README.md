@@ -2,12 +2,14 @@
 
 Calculate your own constant based on your first name.
 
-## What does it do?
-Simply take each letter of your first name, associate a constant with it, and multiply the constants together.
+## FAQ
+There is a [FAQ here](./FAQ.md) if you want to know more about the project.
 
-## How do you know all these constants?
-Me? So... [Wikipedia](https://en.wikipedia.org/wiki/List_of_mathematical_constants) gave me some answers...
+## Public demo
+[Coming Soon™](#)
 
-## This is a real constant...?
-To ensure that the constant in your first name is unique,
-each letter is set to the power relative to the position of the letter in your first name.
+## Host it yourself
+Clone the repo and run `npm run main`.
+
+### Docker
+[Coming Soon™](#)
