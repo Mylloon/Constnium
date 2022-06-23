@@ -1,8 +1,12 @@
-const router = require('express').Router();
+const router = require('express').Router()
+const marked = require('marked')
+
+const readme = require('../utils/readme')
 
 // Home Page
 router.get('/', (_, res) => {
-    res.render('index');
-});
+    readme.data()
+        .then(data => res.render('index', { readme: marked.parse(data) }))
+})
 
-module.exports = router;
+module.exports = router
