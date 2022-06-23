@@ -1,15 +1,34 @@
-.form-control {
-    width: 50% !important;
+/* Center divs */
+.center {
     text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
+/* Input */
+.form-control[type="text"] {
+    margin: auto;
+    width: 50%;
+    font-size: 24px;
+}
+
+/* Size of block displaying informations */
 .firstname-constant {
-    height: 15em;
-    min-height: 15em;
-    max-height: 15em;
+    height: 13em;
 }
 
+/* Size of information's text */
 .firstname-constant p {
-    text-align: center;
-    font-size: 5em;
+    font-size: 60px;
+}
+
+/* Drop the size of the text when screen is small */
+@media only screen and (max-width : 850px) {
+    .firstname-constant {
+        height: 7em;
+    }
+
+    .firstname-constant p {
+        font-size: 28px;
+    }
 }
