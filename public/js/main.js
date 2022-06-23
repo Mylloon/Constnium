@@ -13,9 +13,11 @@ const main = () => {
 // Callback: called when firstname is changed
 const update_const = () => {
     const firstname = document.getElementById(input_name).value;
-    const data = get_const(firstname.toLowerCase().split(""));
+    if(firstname.length) {
+        const data = get_const(firstname.toLowerCase().split(""));
 
-    console.log(`output: ${data.const} - ${JSON.stringify(data.infos)}`);
+        console.log(`output: ${data.const} - ${JSON.stringify(data.infos)}`);
+    }
 };
 
 const get_const = (letters = Array) => {
