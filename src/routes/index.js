@@ -7,7 +7,10 @@ const utils  = require('../utils/utils');
 // Home Page
 router.get('/', (_, res) => {
     readme.get()
-        .then(data => res.render('index', { readme: marked.parse(data), firstname_placeholder: utils.randomFirstname() }));
+        .then(data => res.render('index', {
+            readme: marked.parse(data),
+            firstname_placeholder: utils.randomFirstname()
+        }));
 });
 
 module.exports = router;
