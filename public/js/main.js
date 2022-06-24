@@ -58,6 +58,7 @@ const setString = (firstname = String, data = Object) => {
         infos.textContent = JSON.stringify(data[letter_value.toLowerCase()]);
 
         // Change parameter of tag
+        infos.className        = "firstname-letter"
         infos.style.visibility = "hidden";
         infos.style.position   = "absolute";
 
