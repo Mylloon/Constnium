@@ -55,7 +55,7 @@ const setString = (firstname = String, data = Object) => {
 
         // Fill elements with data
         letter.textContent = letter_value;
-        infos.textContent = JSON.stringify(data[letter_value]);
+        infos.textContent = JSON.stringify(data[letter_value.toLowerCase()]);
 
         // Change parameter of tag
         infos.style.visibility = "hidden";
