@@ -8,12 +8,12 @@ const main = () => {
     // Reset content of the input
     input.value = "";
 
-    // Create the paragraph of the firstname
-    let string_firstname = document.createElement("p");
+    // Create the paragraph of the first name
+    const string_firstname = document.createElement("div");
     string_firstname.className = "firstname-constant-string";
 
     // Create the paragraph of the constant
-    let double_firstname = document.createElement("p");
+    const double_firstname = document.createElement("p");
     double_firstname.className = "firstname-constant-double";
 
     // Add the elements to the page
@@ -21,56 +21,82 @@ const main = () => {
     document.getElementsByClassName("firstname-constant").item(0).append(double_firstname);
 
     // Fill informations with placeholder
-    defaultFirstname();
-    defaultConstant();
+    updateConst();
 
     // Call callback when editing the input
     input.addEventListener("input", updateConst);
 };
 
-// Callback: called when firstname is changed
+// Callback: called when first name is changed
 const updateConst = () => {
     const firstname = input.value.trim().toLowerCase();
     if(firstname.length) {
         const data = getConst(firstname.split(""));
 
-        getString().textContent = firstname.replace(/^\w/, (c) => c.toUpperCase());
+        setString(firstname.replace(/^\w/, (c) => c.toUpperCase()), data.infos);
         getDouble().textContent = data.const;
-        console.log(`info: ${JSON.stringify(data.infos, undefined, 2)}`);
     } else {
-        defaultFirstname();
-        defaultConstant();
+        defaultInfos();
     }
 };
 
+// Define the string who show the firstname
+const setString = (firstname = String, data = Object) => {
+    const string_div = document.getElementsByClassName("firstname-constant-string").item(0);
+
+    // Reset the string data
+    string_div.innerHTML = "";
+
+    // For each letter of the first name
+    firstname.split("").forEach(letter_value => {
+        // Create the letter
+        const letter = document.createElement("p");
+        const infos  = document.createElement("p");
+
+        // Fill elements with data
+        letter.textContent = letter_value;
+        infos.textContent = JSON.stringify(data[letter_value]);
+
+        // Change parameter of tag
+        infos.style.visibility = "hidden";
+        infos.style.position   = "absolute";
+
+        // Link info to the letter
+        letter.append(infos);
+
+        // Add the letter
+        string_div.append(letter);
+    });
+}
+
 // Get the paragraph of the name
 const getString = () => {
-    return document.getElementsByClassName("firstname-constant").item(0)
-        .getElementsByClassName("firstname-constant-string").item(0);
+    return document.getElementsByClassName("firstname-constant-string").item(0);
 }
 
 // Get the paragraph of the constant
 const getDouble = () => {
-    return document.getElementsByClassName("firstname-constant").item(0)
-        .getElementsByClassName("firstname-constant-double").item(0);
+    return document.getElementsByClassName("firstname-constant-double").item(0);
 }
 
 // Set the paragraph of the name to the placeholder
-const defaultFirstname = () => {
-    getString().textContent = input.placeholder;
-}
+const defaultInfos = () => {
+    // Retrieve the constant from the default first name
+    const data = getConst(input.placeholder.split(""));
 
-// Set the paragraph of the constant to the placeholder
-const defaultConstant = () => {
-    getDouble().textContent = getConst(input.placeholder.split("")).const;
+    // Define the string
+    setString(input.placeholder, data.infos);
+
+    // Define the constant
+    getDouble().textContent = data.const;
 }
 
 const getConst = (letters = Array) => {
-    // Store constants of each letters of the firstname
-    let const_data = [];
+    // Store constants of each letters of the first name
+    const const_data = [];
 
     // Store some constants info
-    let const_infos = {};
+    const const_infos = {};
 
     // Assign each letter to a constant, fallback to 1 if no one has been found
     let position = 0;
@@ -246,8 +272,8 @@ const getConst = (letters = Array) => {
         };
     });
 
-    // Multiply all the constants together
     return {
+        // Multiply all the constants together
         "const": const_data.reduce((x, y) => x * y),
         "infos": const_infos
     };

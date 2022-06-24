@@ -22,6 +22,11 @@
     font-size: 60px;
 }
 
+/* Letter of the first name inline */
+.firstname-constant-string p {
+    display: inline;
+}
+
 /* Drop the size of the text when screen is small */
 @media only screen and (max-width : 850px) {
     .firstname-constant {
