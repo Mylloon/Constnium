@@ -36,4 +36,19 @@
     .firstname-constant p {
         font-size: 28px;
     }
+
+    span {
+        transform: translate(-50%, 80%) !important;
+        font-size: 30px !important;
+    }
+}
+
+/* Info card */
+span {
+    transform: translate(-50%, 95%);
+    font-size: 50px;
+    border: 2px;
+    border-style: groove;
+    background-color: black;
+    border-radius: 5px;
 }
