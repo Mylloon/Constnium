@@ -52,30 +52,35 @@ const setString = (firstname = String, data = Object) => {
     firstname.split("").forEach(letter_value => {
         // Create the letter
         const letter = document.createElement("p");
-        const infos  = document.createElement("span");
 
         // Fill elements with data
         letter.textContent = letter_value;
-        Object.keys(data[clearText(letter_value)]).forEach(key => {
-            const link = document.createElement("a");
-            link.href = data[clearText(letter_value)][key];
-            link.innerText = key;
-            infos.append(link);
-        });
 
-        // Change parameter of tags
-        infos.hidden = true;
-        infos.style.position = "absolute";
+        // Check if the letter is inside part of the constant
+        if (Object.keys(data).includes(clearText(letter_value))) {
+            // Info about a specific constant
+            const infos = document.createElement("span");
+            Object.keys(data[clearText(letter_value)]).forEach(key => {
+                const link = document.createElement("a");
+                link.href = data[clearText(letter_value)][key];
+                link.innerText = key;
+                infos.append(link);
+            });
 
-        // Link info to the letter
-        letter.append(infos);
+            // Change parameter of the info card
+            infos.hidden = true;
+            infos.style.position = "absolute";
+
+            // Link info to the letter
+            letter.append(infos);
+
+            // Add behaviour when hovering over the letter
+            letter.addEventListener("mouseenter", (e) => e.target.firstElementChild.hidden = false);
+            letter.addEventListener("mouseleave", (e) => e.target.firstElementChild.hidden = true);
+        }
 
         // Add the letter
         string_div.append(letter);
-
-        // Add behaviour when clicking on letters
-        letter.addEventListener("mouseenter", (e) => e.target.firstElementChild.hidden = false);
-        letter.addEventListener("mouseleave", (e) => e.target.firstElementChild.hidden = true);
     });
 };
 
