@@ -49,7 +49,7 @@ const setString = (firstname = String, data = Object) => {
     string_div.innerHTML = "";
 
     // For each letter of the first name
-    firstname.split("").forEach(letter_value => {
+    [...firstname].forEach(letter_value => {
         // Create the letter
         const letter = document.createElement("p");
 
@@ -108,7 +108,7 @@ const clearText = (string = String) => {
 
 const getConst = (letters = String) => {
     // Turn letters to an array
-    const letters_array = clearText(letters).split("");
+    const letters_array = [...clearText(letters)];
 
     // Store constants of each letters of the first name
     const const_data = [];
