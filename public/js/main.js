@@ -31,7 +31,7 @@ const main = () => {
 // Callback: called when first name is changed
 const updateConst = () => {
     const firstname = input.value.trim().toLowerCase();
-    if(firstname.length) {
+    if (firstname.length) {
         const data = getConst(firstname);
 
         setString(firstname.replace(/^\w/, (c) => c.toUpperCase()), data.infos);
@@ -61,10 +61,10 @@ const setString = (firstname = String, data = Object) => {
             link.href = data[clearText(letter_value)][key];
             link.innerText = key;
             infos.append(link);
-        })
+        });
 
         // Change parameter of tags
-        infos.hidden         = true;
+        infos.hidden = true;
         infos.style.position = "absolute";
 
         // Link info to the letter
@@ -77,17 +77,12 @@ const setString = (firstname = String, data = Object) => {
         letter.addEventListener("mouseenter", (e) => e.target.firstElementChild.hidden = false);
         letter.addEventListener("mouseleave", (e) => e.target.firstElementChild.hidden = true);
     });
-}
-
-// Get the paragraph of the name
-const getString = () => {
-    return document.getElementsByClassName("firstname-constant-string").item(0);
-}
+};
 
 // Get the paragraph of the constant
 const getDouble = () => {
     return document.getElementsByClassName("firstname-constant-double").item(0);
-}
+};
 
 // Set the paragraph of the name to the placeholder
 const defaultInfos = () => {
@@ -99,12 +94,12 @@ const defaultInfos = () => {
 
     // Define the constant
     getDouble().textContent = data.const;
-}
+};
 
 // Remove accent and lower the string
 const clearText = (string = String) => {
     return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
-}
+};
 
 const getConst = (letters = String) => {
     // Turn letters to an array
@@ -122,7 +117,7 @@ const getConst = (letters = String) => {
         position++;
         switch (letter) {
             case "a":
-                const_data.push(1.28242712910062263687534256886979172 ** position);
+                const_data.push(1.2824271291006226 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Glaisher%E2%80%93Kinkelin_constant"
                 };
@@ -140,25 +135,25 @@ const getConst = (letters = String) => {
                 };
                 break;
             case "d":
-                const_data.push(0.73908513321516064165 ** position);
+                const_data.push(0.7390851332151606 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Dottie_number"
                 };
                 break;
             case "e":
-                const_data.push(2.71828182845904523536028747135266250 ** position);
+                const_data.push(2.718281828459045 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/E_(mathematical_constant)"
                 };
                 break;
             case "f":
-                const_data.push(2,80777024202851936522150118655777293 ** position);
+                const_data.push(2.807770242028519 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Frans%C3%A9n%E2%80%93Robinson_constant"
                 };
                 break;
             case "g":
-                const_data.push(0.83462684167407318628142973279904680 ** position);
+                const_data.push(0.8346268416740731 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Gauss%27s_constant"
                 };
@@ -170,7 +165,7 @@ const getConst = (letters = String) => {
                 };
                 break;
             case "i":
-                const_data.push(0.20787957635076190854695561983497877 ** position);
+                const_data.push(0.20787957635076190 ** position);
                 const_infos[letter] = {
                     "oeis": "https://oeis.org/A049006"
                 };
@@ -188,13 +183,13 @@ const getConst = (letters = String) => {
                 };
                 break;
             case "l":
-                const_data.push(0.97027011439203392574 ** position);
+                const_data.push(0.97027011439203392 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Lochs%27s_theorem"
                 };
                 break;
             case "m":
-                const_data.push(0.26149721284764278375542683860869585 ** position);
+                const_data.push(0.2614972128476427 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Meissel%E2%80%93Mertens_constant"
                 };
@@ -206,13 +201,13 @@ const getConst = (letters = String) => {
                 };
                 break;
             case "o":
-                const_data.push(1.66168794963359412129581892274995074 ** position);
+                const_data.push(1.66168794963359412 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Somos%27_quadratic_recurrence_constant"
                 };
                 break;
             case "p":
-                const_data.push(2.29558714939263807403429804918949038 ** position);
+                const_data.push(2.295587149392638 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Universal_parabolic_constant"
                 };
@@ -224,37 +219,37 @@ const getConst = (letters = String) => {
                 };
                 break;
             case "r":
-                const_data.push(262537412640768743.999999999999250073  ** position);
+                const_data.push(2625374126407687e2 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Heegner_number#Almost_integers_and_Ramanujan.27s_constant"
                 };
                 break;
             case "s":
-                const_data.push(0.18785964246206712024851793405427323 ** position);
+                const_data.push(0.1878596424620671 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/MRB_constant"
                 };
                 break;
             case "t":
-                const_data.push(1.92756197548292530426 ** position);
+                const_data.push(1.927561975482925 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tetranacci_numbers"
                 };
                 break;
             case "u":
-                const_data.push(1.84775906502257351225 ** position);
+                const_data.push(1.8477590650225735 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Self-avoiding_walk"
                 };
                 break;
             case "v":
-                const_data.push(0.42215773311582662702 ** position);
+                const_data.push(0.4221577331158266 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Reuleaux_tetrahedron"
                 };
                 break;
             case "w":
-                const_data.push(2.09455148154232659148 ** position);
+                const_data.push(2.0945514815423265 ** position);
                 const_infos[letter] = {
                     "OEIS": "https://oeis.org/A007493"
                 };
@@ -266,7 +261,7 @@ const getConst = (letters = String) => {
                 };
                 break;
             case "y":
-                const_data.push(0.57721566490153286060651209008240243 ** position);
+                const_data.push(0.5772156649015328 ** position);
                 const_infos[letter] = {
                     "Wikipedia": "https://en.wikipedia.org/wiki/Euler%27s_constant"
                 };
@@ -280,7 +275,7 @@ const getConst = (letters = String) => {
 
             default: // By default, equals to 1
                 const_data.push(1);
-        };
+        }
     });
 
     return {

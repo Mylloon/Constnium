@@ -1,4 +1,4 @@
-fs = require('fs');
+const fs = require('fs');
 
 // Retrieve the FAQ file
 const get = () => {
@@ -11,7 +11,7 @@ const get = () => {
             ok(data);
         });
     });
-}
+};
 
 module.exports = {
     get

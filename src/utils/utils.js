@@ -20,7 +20,7 @@ const randomFirstname = () => {
         "James",
         "John",
         "Lucas"
-    ]
+    ];
     return firstnames[Math.floor(Math.random() * firstnames.length)];
 };
 
