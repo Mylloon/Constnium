@@ -172,7 +172,7 @@ const getConst = (letters = String) => {
             case "i":
                 const_data.push(0.20787957635076190 ** position);
                 const_infos[letter] = {
-                    "oeis": "https://oeis.org/A049006"
+                    "OEIS": "https://oeis.org/A049006"
                 };
                 break;
             case "j":
